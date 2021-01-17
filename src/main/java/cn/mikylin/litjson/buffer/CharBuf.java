@@ -2,7 +2,10 @@ package cn.mikylin.litjson.buffer;
 
 import cn.mikylin.litjson.exception.JSONCharException;
 import cn.mikylin.litjson.utils.BlankCharUtils;
+import cn.mikylin.litjson.utils.Constants;
+
 import java.util.Arrays;
+import java.util.Objects;
 
 public interface CharBuf {
 
@@ -30,16 +33,6 @@ public interface CharBuf {
     int index();
 
     /**
-     * the last char.
-     */
-    char last();
-
-    /**
-     * the head char.
-     */
-    char head();
-
-    /**
      * chars.
      */
     char[] data();
@@ -53,11 +46,6 @@ public interface CharBuf {
      * can read ?
      */
     boolean canRead();
-
-    /**
-     * data length.
-     */
-    int length();
 
     default CharBuf readTil(boolean isInCludeTil,char... chars) {
         if (chars == null || chars.length == 0)
@@ -168,14 +156,12 @@ public interface CharBuf {
                 return c;
             next();
         }
-        return Non_Char;
+        return Constants.NON_CHAR;
     }
 
     default boolean equals(String str) {
-        return toString().equals(str);
+        return Objects.equals(toString(),str);
     }
-
-    char Non_Char = '\u0000';
 
     CharBuf NON = new CharBuffer();
 

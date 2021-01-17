@@ -28,23 +28,8 @@ public class ProxyCharBuf implements CharBuf {
     }
 
     @Override
-    public char last() {
-        return buffer.last();
-    }
-
-    @Override
-    public char head() {
-        return buffer.head();
-    }
-
-    @Override
     public char[] data() {
         return buffer.data();
-    }
-
-    @Override
-    public int length() {
-        return buffer.length();
     }
 
     @Override

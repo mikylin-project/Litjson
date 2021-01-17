@@ -3,6 +3,7 @@ package cn.mikylin.litjson.utils;
 public final class Constants {
 
     //chars cache
+    public static final char NON_CHAR = '\u0000';
     public static final char OPEN_CURLY = '{';
     public static final char CLOSE_CURLY = '}';
     public static final char OPEN_SQUAREBRACKETS = '[';

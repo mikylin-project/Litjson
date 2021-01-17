@@ -1,11 +1,13 @@
 package cn.mikylin.litjson.buffer;
 
+import cn.mikylin.litjson.utils.Constants;
+
 public final class CharBuffer implements CharBuf {
 
     private final char[] data;
     private final int begin;
     private final int end;
-    private volatile int index;
+    private int index;
 
     private String value = null;
 
@@ -41,33 +43,18 @@ public final class CharBuffer implements CharBuf {
     }
 
     @Override
-    public char last() {
-        return data[end];
-    }
-
-    @Override
-    public char head() {
-        return data[0];
-    }
-
-    @Override
     public char[] data() {
         return data;
     }
 
     @Override
     public char read() {
-        return canRead() ? data[index] : Non_Char;
+        return canRead() ? data[index] : Constants.NON_CHAR;
     }
 
     @Override
     public boolean canRead() {
         return index <= end;
-    }
-
-    @Override
-    public int length() {
-        return end - begin + 1;
     }
 
     @Override
